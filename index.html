@@ -130,7 +130,7 @@
         </div>
         <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
           <h3 class="text-xl font-bold text-blue-600">Free Shipping</h3>
-          <p>On orders above $50, valid till end of the week.</p>
+          <p>On orders above L.E.50, valid till end of the week.</p>
         </div>
         <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-xl font-bold text-blue-600">Bundle Offer</h3>
@@ -145,19 +145,27 @@
       <h2 class="text-3xl font-bold text-center text-blue-700 mb-8" data-aos="fade-up">Our Products</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="card p-6 cursor-pointer" data-product-id="1" onclick="showProductModal(1)" data-aos="fade-up">
+          <img src="1.PNG" alt="Dental Student Kit" class="w-full h-40 object-cover rounded">
+          <h3 class="text-xl font-bold mt-4">Dental Mirror</h3>
+          <p class="text-gray-600">L.E.00.00</p>
+        </div>
+        <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-700 mb-8" data-aos="fade-up">Our Products</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6 cursor-pointer" data-product-id="1" onclick="showProductModal(1)" data-aos="fade-up">
           <img src="https://via.placeholder.com/150" alt="Dental Student Kit" class="w-full h-40 object-cover rounded">
           <h3 class="text-xl font-bold mt-4">Dental Student Kit</h3>
-          <p class="text-gray-600">$49.99</p>
+          <p class="text-gray-600">L.E.49.99</p>
         </div>
         <div class="card p-6 cursor-pointer" data-product-id="2" onclick="showProductModal(2)" data-aos="fade-up" data-aos-delay="100">
           <img src="https://via.placeholder.com/150" alt="Teeth Whitening Gel" class="w-full h-40 object-cover rounded">
           <h3 class="text-xl font-bold mt-4">Teeth Whitening Gel</h3>
-          <p class="text-gray-600">$19.99</p>
+          <p class="text-gray-600">L.E.19.99</p>
         </div>
         <div class="card p-6 cursor-pointer" data-product-id="3" onclick="showProductModal(3)" data-aos="fade-up" data-aos-delay="200">
           <img src="https://via.placeholder.com/150" alt="Professional Dental Toolset" class="w-full h-40 object-cover rounded">
           <h3 class="text-xl font-bold mt-4">Professional Dental Toolset</h3>
-          <p class="text-gray-600">$99.99</p>
+          <p class="text-gray-600">L.E.99.99</p>
         </div>
       </div>
     </div>
@@ -177,7 +185,7 @@
       <h2 class="text-3xl font-bold text-center text-blue-700 mb-8" data-aos="fade-up">Your Cart</h2>
       <div id="cart-items" class="space-y-4"></div>
       <div class="text-right mt-6">
-        <p class="text-xl font-bold">Total: $<span id="cart-total">0.00</span></p>
+        <p class="text-xl font-bold">Total: L.E.<span id="cart-total">0.00</span></p>
         <button id="checkout-btn" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700" onclick="checkout()">Proceed to Checkout</button>
       </div>
     </div>
@@ -226,12 +234,12 @@
 
     function setCookie(name, value, days) {
       const expires = new Date(Date.now() + days * 864e5).toUTCString();
-      document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+      document.cookie = `L.E.{name}=L.E.{encodeURIComponent(value)}; expires=L.E.{expires}; path=/`;
     }
 
     function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
+      const value = `; L.E.{document.cookie}`;
+      const parts = value.split(`; L.E.{name}=`);
       if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
       return null;
     }
@@ -248,10 +256,10 @@
         div.className = "flex justify-between items-center p-4 bg-white rounded";
         div.innerHTML = `
           <div>
-            <h3 class="text-lg font-bold">${item.name}</h3>
-            <p>$${item.price} x ${item.quantity}</p>
+            <h3 class="text-lg font-bold">L.E.{item.name}</h3>
+            <p>L.E.L.E.{item.price} x L.E.{item.quantity}</p>
           </div>
-          <button class="text-red-600" onclick="removeFromCart(${item.id})"><i class="fas fa-trash"></i></button>
+          <button class="text-red-600" onclick="removeFromCart(L.E.{item.id})"><i class="fas fa-trash"></i></button>
         `;
         cartItems.appendChild(div);
       });
@@ -284,7 +292,7 @@
       modal.dataset.productId = id;
       document.getElementById("modal-image").src = product.image;
       document.getElementById("modal-title").textContent = product.name;
-      document.getElementById("modal-price").textContent = `$${product.price}`;
+      document.getElementById("modal-price").textContent = `L.E.L.E.{product.price}`;
       document.getElementById("modal-description").textContent = product.description;
       modal.style.display = "flex";
     }
@@ -307,11 +315,11 @@
       let message = "Order Details:\n";
       let total = 0;
       cart.forEach(item => {
-        message += `${item.name} - Quantity: ${item.quantity} - Price: $${(item.price * item.quantity).toFixed(2)}\n`;
+        message += `L.E.{item.name} - Quantity: L.E.{item.quantity} - Price: L.E.L.E.{(item.price * item.quantity).toFixed(2)}\n`;
         total += item.price * item.quantity;
       });
-      message += `Total: $${total.toFixed(2)}\nTotal Items: ${cart.reduce((sum, item) => sum + item.quantity, 0)}`;
-      const whatsappUrl = `https://wa.me/201095896349?text=${encodeURIComponent(message)}`;
+      message += `Total: L.E.L.E.{total.toFixed(2)}\nTotal Items: L.E.{cart.reduce((sum, item) => sum + item.quantity, 0)}`;
+      const whatsappUrl = `https://wa.me/201095896349?text=L.E.{encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
       cart = [];
       updateCart();
