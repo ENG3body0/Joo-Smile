@@ -150,17 +150,17 @@
         </div>
         <div class="card p-6 cursor-pointer" data-product-id="2" onclick="showProductModal(2)" data-aos="fade-up">
           <img src="2.jpg" alt="Dental Student Kit" class="w-full h-40 object-cover rounded">
-          <h3 class="text-xl font-bold mt-4">Dental Student Kit</h3>
+          <h3 class="text-xl font-bold mt-4">Explorer Probe</h3>
           <p class="text-gray-600">L.E.00.00</p>
         </div>
         <div class="card p-6 cursor-pointer" data-product-id="3" onclick="showProductModal(3)" data-aos="fade-up" data-aos-delay="100">
           <img src="3.jpg" alt="Teeth Whitening Gel" class="w-full h-40 object-cover rounded">
-          <h3 class="text-xl font-bold mt-4">Teeth Whitening Gel</h3>
+          <h3 class="text-xl font-bold mt-4">Periodontal Probe</h3>
           <p class="text-gray-600">L.E.00.00</p>
         </div>
         <div class="card p-6 cursor-pointer" data-product-id="4" onclick="showProductModal(4)" data-aos="fade-up" data-aos-delay="200">
           <img src="4.jpg" alt="Professional Dental Toolset" class="w-full h-40 object-cover rounded">
-          <h3 class="text-xl font-bold mt-4">Professional Dental Toolset</h3>
+          <h3 class="text-xl font-bold mt-4">Cotton Pliers/Tweezers</h3>
           <p class="text-gray-600">L.E.00.00</p>
         </div>
       </div>
@@ -221,9 +221,10 @@
     AOS.init();
 
     const products = {
-      1: { id: 1, name: "Dental Mirror", price: 00.00, image: "1.jpg"},
-      2: { id: 2, name: "Teeth Whitening Gel", price: 19.99, image: "https://via.placeholder.com/150", description: "Professional-grade whitening gel." },
-      3: { id: 3, name: "Professional Dental Toolset", price: 99.99, image: "https://via.placeholder.com/150", description: "High-quality tools for dentists." }
+      1: { id: 1, name: "Dental Mirror", price: 00.00, image: "1.jpg", description: ""},
+      2: { id: 2, name: "Explorer Probe", price: 00.00, image: "2.jpg", description: "" },
+      3: { id: 3, name: "Periodontal Probe", price: 00.00, image: "3jpg", description: ""},
+      4: { id: 4, name: "Cotton Pliers/Tweezers", price: 00.00, image: "4jpg", description: ""}
     };
 
     let cart = getCookie("cart") ? JSON.parse(getCookie("cart")) : [];
@@ -253,7 +254,7 @@
         div.innerHTML = `
           <div>
             <h3 class="text-lg font-bold">L.E.{item.name}</h3>
-            <p>L.E.L.E.{item.price} x L.E.{item.quantity}</p>
+            <p>L.E.${item.price} x L.E.{item.quantity}</p>
           </div>
           <button class="text-red-600" onclick="removeFromCart(L.E.{item.id})"><i class="fas fa-trash"></i></button>
         `;
@@ -288,7 +289,7 @@
       modal.dataset.productId = id;
       document.getElementById("modal-image").src = product.image;
       document.getElementById("modal-title").textContent = product.name;
-      document.getElementById("modal-price").textContent = `L.E.L.E.{product.price}`;
+      document.getElementById("modal-price").textContent = `L.E.${product.price}`;
       document.getElementById("modal-description").textContent = product.description;
       modal.style.display = "flex";
     }
@@ -311,10 +312,10 @@
       let message = "Order Details:\n";
       let total = 0;
       cart.forEach(item => {
-        message += `L.E.{item.name} - Quantity: L.E.{item.quantity} - Price: L.E.L.E.{(item.price * item.quantity).toFixed(2)}\n`;
+        message += `L.E.{item.name} - Quantity: L.E.{item.quantity} - Price: L.E.${(item.price * item.quantity).toFixed(2)}\n`;
         total += item.price * item.quantity;
       });
-      message += `Total: L.E.L.E.{total.toFixed(2)}\nTotal Items: L.E.{cart.reduce((sum, item) => sum + item.quantity, 0)}`;
+      message += `Total: L.E.${total.toFixed(2)}\nTotal Items: L.E.{cart.reduce((sum, item) => sum + item.quantity, 0)}`;
       const whatsappUrl = `https://wa.me/201095896349?text=L.E.{encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
       cart = [];
