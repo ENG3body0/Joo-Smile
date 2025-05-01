@@ -8,7 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
   <style>
+    html {
+      scroll-padding-top: 90px;
+    }
     body {
       font-family: 'Cairo', sans-serif;
       background-color: #f8fafc;
@@ -108,7 +114,7 @@
 <body>
   <header id="navbar" class="navbar text-white fixed w-full top-0 z-50">
     <div class="flex justify-between items-center p-4 max-w-6xl mx-auto">
-      <a href="#hero" class="flex items-center gap-4">
+      <a href="#top" class="flex items-center gap-4">
         <h1 class="text-2xl font-bold">Joo Abo-Sena</h1>
       </a>
       <nav>
@@ -130,9 +136,9 @@
     </div>
   </header>
 
- <section id="top" class="top-section py-32 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+ <section id="top" class="top-section py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
   <div class="max-w-6xl mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="flex flex-col md:flex-row items-center justify-between mx-auto w-full gap-8">
       <div class="md:w-1/2 text-center">
         <h1 class="text-4xl font-bold mb-4">Joo Abo-Sena – Dental Essentials</h1>
         <p class="text-lg leading-relaxed">
@@ -142,7 +148,7 @@
         </p>
       </div>
       <div class="md:w-1/2">
-        <img src="owner.jpg" alt="Joo Abo-Sena" class="rounded-xl object-cover w-full max-w-sm mx-auto shadow-lg">
+        <img src="owner.jpg" alt="Joo Abo-Sena" class="rounded-xl object-cover w-full max-w-md mx-auto shadow-lg">
       </div>
     </div>
   </div>
