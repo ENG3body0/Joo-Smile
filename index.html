@@ -97,10 +97,6 @@
     #notification.show {
       opacity: 1;
     }
-    #products-container {
-  min-height: 350px;
-}
-
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -422,18 +418,6 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init(); 
-    function setDynamicMinHeight() {
-  const productsContainer = document.getElementById("products-container");
-  const cards = document.querySelectorAll("#products-container .card");
-  const cardHeight = cards.length > 0 ? cards[0].offsetHeight : 200;
-  const cardsPerRow = window.innerWidth >= 768 ? 3 : 1; 
-  const rowCount = Math.ceil(cards.length / cardsPerRow);
-  const totalHeight = rowCount * cardHeight * 1.2; 
-  productsContainer.style.minHeight = ${totalHeight}px; 
-}
-window.addEventListener("load", setDynamicMinHeight);
-window.addEventListener("resize", setDynamicMinHeight);
-
     const products = {
       1: { id: 1, name: "Dental Mirror", price: 0.00, image: "1.jpg", description: "" },
       2: { id: 2, name: "Explorer Probe", price: 0.00, image: "2.jpg", description: "" },
