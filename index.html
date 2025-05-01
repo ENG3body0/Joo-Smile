@@ -502,14 +502,14 @@
         cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
       }
       updateCart();
-      showNotification("Add.");
+      showNotification("Successfully Added.");
       closeProductModal();
     }
 
     function removeFromCart(id) {
       cart = cart.filter(item => item.id !== id);
       updateCart();
-        showNotification("Remove.");
+        showNotification("Successfully Removed.");
     }
 
     function showProductModal(id) {
@@ -557,7 +557,7 @@
       window.open(whatsappUrl, "_blank");
       cart = [];
       updateCart();
-      showNotification("Check Out.");
+      showNotification("Order Confirmed Successfully");
     }
     function toggleMenu() {
   document.querySelector("nav").classList.toggle("active");
@@ -574,6 +574,20 @@
     updateCart();
   </script>
   <script>
+function resetAOS() {
+  const cards = document.querySelectorAll("#products-container .card");
+  cards.forEach(card => {
+    card.style.display = "inline-block"; 
+    card.setAttribute("data-aos", "fade-up"); 
+    card.classList.remove("aos-init", "aos-animate");
+  });
+  AOS.init({
+    duration: 800,
+    once: false
+  });
+  AOS.refreshHard();
+}
+
   function filterProducts() {
   const search = document.getElementById("product-search").value.toLowerCase();
   const cards = document.querySelectorAll("#products-container .card");
