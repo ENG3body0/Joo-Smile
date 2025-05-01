@@ -534,8 +534,7 @@
       window.open(whatsappUrl, "_blank");
       cart = [];
       updateCart();
-    
-
+    }
     function toggleMenu() {
   const nav = document.querySelector('nav');
   nav.classList.toggle('active');
@@ -547,7 +546,8 @@
   });
 
     updateCart();
-  
+  </script>
+  <script>
   function filterProducts() {
     const search = document.getElementById("product-search").value.toLowerCase();
     const cards = document.querySelectorAll("#products-container .card");
