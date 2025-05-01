@@ -81,7 +81,25 @@
       nav.active ul {
         display: flex;
       }
-    }
+      .top-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 24px;
+       }
+      .top-inner {
+        width: 90%;
+        max-width: 1000px;
+        text-align: center;
+       }
+      }
+      @media (min-width: 768px) {
+        .top-inner {
+          width: 70%;
+        }
+      }
   </style>
 </head>
 <body>
@@ -109,7 +127,7 @@
     </div>
   </header>
 
- <section id="intro" class="py-32 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+ <section id="top" class="top-section py-32 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex flex-col md:flex-row items-center justify-between gap-8">
       <div class="md:w-1/2 text-center">
@@ -151,9 +169,9 @@
 
   <section id="products" class="py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-700 mb-8" data-aos="fade-up">Our Products</h2
+      <h2 class="text-3xl font-bold text-center text-blue-700 mb-8" data-aos="fade-up">Our Products</h2>
+      <input type="text" id="product-search" onkeyup="filterProducts()" placeholder="Search for a product..." class="mt-6 w-full p-3 rounded text-black focus:outline-none">
       <div id="products-container" class="flex gap-6 overflow-x-auto py-4 px-2">
-     <input type="text" id="product-search" onkeyup="filterProducts()" placeholder="Search for a product..." class="mt-6 w-full p-3 rounded text-black focus:outline-none">
     <div class="card p-6 cursor-pointer" data-product-id="1" onclick="showProductModal(1)" data-aos="fade-up">
       <img src="1.jpg" alt="Dental Mirror" class="w-full h-40 object-cover contain">
       <h3 class="text-xl font-bold mt-4">Dental Mirror</h3>
